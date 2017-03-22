@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A7BE79AA1E8278C6003A1346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79A91E8278C6003A1346 /* AppDelegate.swift */; };
+		A7BE79AC1E8278C6003A1346 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79AB1E8278C6003A1346 /* ViewController.swift */; };
+		A7BE79AF1E8278C6003A1346 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BE79AD1E8278C6003A1346 /* Main.storyboard */; };
+		A7BE79B11E8278C6003A1346 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7BE79B01E8278C6003A1346 /* Assets.xcassets */; };
+		A7BE79B41E8278C6003A1346 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BE79B21E8278C6003A1346 /* LaunchScreen.storyboard */; };
+		A7BE79BF1E8278C6003A1346 /* LEOCouchbaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79BE1E8278C6003A1346 /* LEOCouchbaseManagerTests.swift */; };
+		A7BE79CB1E82791C003A1346 /* LEOCouchbaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79CA1E82791C003A1346 /* LEOCouchbaseModel.swift */; };
+		A7BE79CE1E827BF6003A1346 /* LEOCouchbaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79CD1E827BF6003A1346 /* LEOCouchbaseManager.swift */; };
+		A7BE79D01E82808E003A1346 /* LEOCouchbaseModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79CF1E82808E003A1346 /* LEOCouchbaseModelContainer.swift */; };
+		A7BE79D21E8289E2003A1346 /* LEONotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79D11E8289E2003A1346 /* LEONotebook.swift */; };
+		BA13A4EC8B580CA033D64F41 /* Pods_LEOCouchbaseManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D667E77C9581AE39D2944D7F /* Pods_LEOCouchbaseManager.framework */; };
+		C3CD071C3BB3D1EB1474E53F /* Pods_LEOCouchbaseManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3254FD092538D46C3F0E091 /* Pods_LEOCouchbaseManagerTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A7BE79BB1E8278C6003A1346 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7BE799E1E8278C6003A1346 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7BE79A51E8278C6003A1346;
+			remoteInfo = LEOCouchbaseManager;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0647B477F0FAA507A6360A3B /* Pods-LEOCouchbaseManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LEOCouchbaseManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LEOCouchbaseManager/Pods-LEOCouchbaseManager.debug.xcconfig"; sourceTree = "<group>"; };
+		68D32F7071A3BC155CB09BC1 /* Pods-LEOCouchbaseManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LEOCouchbaseManagerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LEOCouchbaseManagerTests/Pods-LEOCouchbaseManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A7BE79A61E8278C6003A1346 /* LEOCouchbaseManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LEOCouchbaseManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7BE79A91E8278C6003A1346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A7BE79AB1E8278C6003A1346 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A7BE79AE1E8278C6003A1346 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A7BE79B01E8278C6003A1346 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A7BE79B31E8278C6003A1346 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A7BE79B51E8278C6003A1346 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7BE79BA1E8278C6003A1346 /* LEOCouchbaseManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LEOCouchbaseManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7BE79BE1E8278C6003A1346 /* LEOCouchbaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseManagerTests.swift; sourceTree = "<group>"; };
+		A7BE79C01E8278C6003A1346 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7BE79CA1E82791C003A1346 /* LEOCouchbaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseModel.swift; sourceTree = "<group>"; };
+		A7BE79CC1E8279EF003A1346 /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
+		A7BE79CD1E827BF6003A1346 /* LEOCouchbaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseManager.swift; sourceTree = "<group>"; };
+		A7BE79CF1E82808E003A1346 /* LEOCouchbaseModelContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseModelContainer.swift; sourceTree = "<group>"; };
+		A7BE79D11E8289E2003A1346 /* LEONotebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEONotebook.swift; sourceTree = "<group>"; };
+		C0341F1454096B3ADA8D37A0 /* Pods-LEOCouchbaseManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LEOCouchbaseManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LEOCouchbaseManagerTests/Pods-LEOCouchbaseManagerTests.release.xcconfig"; sourceTree = "<group>"; };
+		D09916C042CA8119FE6627A5 /* Pods-LEOCouchbaseManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LEOCouchbaseManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-LEOCouchbaseManager/Pods-LEOCouchbaseManager.release.xcconfig"; sourceTree = "<group>"; };
+		D3254FD092538D46C3F0E091 /* Pods_LEOCouchbaseManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LEOCouchbaseManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D667E77C9581AE39D2944D7F /* Pods_LEOCouchbaseManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LEOCouchbaseManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A7BE79A31E8278C6003A1346 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA13A4EC8B580CA033D64F41 /* Pods_LEOCouchbaseManager.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7BE79B71E8278C6003A1346 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3CD071C3BB3D1EB1474E53F /* Pods_LEOCouchbaseManagerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5373429ED4CDB4A4744BF07C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D667E77C9581AE39D2944D7F /* Pods_LEOCouchbaseManager.framework */,
+				D3254FD092538D46C3F0E091 /* Pods_LEOCouchbaseManagerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7BE799D1E8278C6003A1346 = {
+			isa = PBXGroup;
+			children = (
+				A7BE79A81E8278C6003A1346 /* LEOCouchbaseManager */,
+				A7BE79BD1E8278C6003A1346 /* LEOCouchbaseManagerTests */,
+				A7BE79A71E8278C6003A1346 /* Products */,
+				AFD247FB3F18FE5C76199A4F /* Pods */,
+				5373429ED4CDB4A4744BF07C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A7BE79A71E8278C6003A1346 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7BE79A61E8278C6003A1346 /* LEOCouchbaseManager.app */,
+				A7BE79BA1E8278C6003A1346 /* LEOCouchbaseManagerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7BE79A81E8278C6003A1346 /* LEOCouchbaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				A7BE79C91E8278F5003A1346 /* Classes */,
+				A7BE79A91E8278C6003A1346 /* AppDelegate.swift */,
+				A7BE79AB1E8278C6003A1346 /* ViewController.swift */,
+				A7BE79AD1E8278C6003A1346 /* Main.storyboard */,
+				A7BE79B01E8278C6003A1346 /* Assets.xcassets */,
+				A7BE79B21E8278C6003A1346 /* LaunchScreen.storyboard */,
+				A7BE79B51E8278C6003A1346 /* Info.plist */,
+				A7BE79CC1E8279EF003A1346 /* Bridge.h */,
+				A7BE79D11E8289E2003A1346 /* LEONotebook.swift */,
+			);
+			path = LEOCouchbaseManager;
+			sourceTree = "<group>";
+		};
+		A7BE79BD1E8278C6003A1346 /* LEOCouchbaseManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				A7BE79BE1E8278C6003A1346 /* LEOCouchbaseManagerTests.swift */,
+				A7BE79C01E8278C6003A1346 /* Info.plist */,
+			);
+			path = LEOCouchbaseManagerTests;
+			sourceTree = "<group>";
+		};
+		A7BE79C91E8278F5003A1346 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A7BE79CD1E827BF6003A1346 /* LEOCouchbaseManager.swift */,
+				A7BE79CF1E82808E003A1346 /* LEOCouchbaseModelContainer.swift */,
+				A7BE79CA1E82791C003A1346 /* LEOCouchbaseModel.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AFD247FB3F18FE5C76199A4F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0647B477F0FAA507A6360A3B /* Pods-LEOCouchbaseManager.debug.xcconfig */,
+				D09916C042CA8119FE6627A5 /* Pods-LEOCouchbaseManager.release.xcconfig */,
+				68D32F7071A3BC155CB09BC1 /* Pods-LEOCouchbaseManagerTests.debug.xcconfig */,
+				C0341F1454096B3ADA8D37A0 /* Pods-LEOCouchbaseManagerTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A7BE79A51E8278C6003A1346 /* LEOCouchbaseManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7BE79C31E8278C6003A1346 /* Build configuration list for PBXNativeTarget "LEOCouchbaseManager" */;
+			buildPhases = (
+				9E78188B807707F24BDE4B3B /* [CP] Check Pods Manifest.lock */,
+				A7BE79A21E8278C6003A1346 /* Sources */,
+				A7BE79A31E8278C6003A1346 /* Frameworks */,
+				A7BE79A41E8278C6003A1346 /* Resources */,
+				85C91D5C399D678D924805BC /* [CP] Embed Pods Frameworks */,
+				0B85EF5754E6B775F3C88717 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LEOCouchbaseManager;
+			productName = LEOCouchbaseManager;
+			productReference = A7BE79A61E8278C6003A1346 /* LEOCouchbaseManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A7BE79B91E8278C6003A1346 /* LEOCouchbaseManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7BE79C61E8278C6003A1346 /* Build configuration list for PBXNativeTarget "LEOCouchbaseManagerTests" */;
+			buildPhases = (
+				F747888E2D4F3897E185ED31 /* [CP] Check Pods Manifest.lock */,
+				A7BE79B61E8278C6003A1346 /* Sources */,
+				A7BE79B71E8278C6003A1346 /* Frameworks */,
+				A7BE79B81E8278C6003A1346 /* Resources */,
+				F7F6443D3B37F9E55BCAC786 /* [CP] Embed Pods Frameworks */,
+				719FACA46CF914E6469982D9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7BE79BC1E8278C6003A1346 /* PBXTargetDependency */,
+			);
+			name = LEOCouchbaseManagerTests;
+			productName = LEOCouchbaseManagerTests;
+			productReference = A7BE79BA1E8278C6003A1346 /* LEOCouchbaseManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A7BE799E1E8278C6003A1346 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LEO;
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = LeoPub;
+				TargetAttributes = {
+					A7BE79A51E8278C6003A1346 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = CP8A63FL25;
+						ProvisioningStyle = Automatic;
+					};
+					A7BE79B91E8278C6003A1346 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = CP8A63FL25;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A7BE79A51E8278C6003A1346;
+					};
+				};
+			};
+			buildConfigurationList = A7BE79A11E8278C6003A1346 /* Build configuration list for PBXProject "LEOCouchbaseManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A7BE799D1E8278C6003A1346;
+			productRefGroup = A7BE79A71E8278C6003A1346 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A7BE79A51E8278C6003A1346 /* LEOCouchbaseManager */,
+				A7BE79B91E8278C6003A1346 /* LEOCouchbaseManagerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A7BE79A41E8278C6003A1346 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7BE79B41E8278C6003A1346 /* LaunchScreen.storyboard in Resources */,
+				A7BE79B11E8278C6003A1346 /* Assets.xcassets in Resources */,
+				A7BE79AF1E8278C6003A1346 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7BE79B81E8278C6003A1346 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B85EF5754E6B775F3C88717 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LEOCouchbaseManager/Pods-LEOCouchbaseManager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		719FACA46CF914E6469982D9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LEOCouchbaseManagerTests/Pods-LEOCouchbaseManagerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85C91D5C399D678D924805BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LEOCouchbaseManager/Pods-LEOCouchbaseManager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E78188B807707F24BDE4B3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F747888E2D4F3897E185ED31 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F7F6443D3B37F9E55BCAC786 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LEOCouchbaseManagerTests/Pods-LEOCouchbaseManagerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A7BE79A21E8278C6003A1346 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7BE79CE1E827BF6003A1346 /* LEOCouchbaseManager.swift in Sources */,
+				A7BE79AC1E8278C6003A1346 /* ViewController.swift in Sources */,
+				A7BE79CB1E82791C003A1346 /* LEOCouchbaseModel.swift in Sources */,
+				A7BE79D21E8289E2003A1346 /* LEONotebook.swift in Sources */,
+				A7BE79AA1E8278C6003A1346 /* AppDelegate.swift in Sources */,
+				A7BE79D01E82808E003A1346 /* LEOCouchbaseModelContainer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7BE79B61E8278C6003A1346 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7BE79BF1E8278C6003A1346 /* LEOCouchbaseManagerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A7BE79BC1E8278C6003A1346 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7BE79A51E8278C6003A1346 /* LEOCouchbaseManager */;
+			targetProxy = A7BE79BB1E8278C6003A1346 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A7BE79AD1E8278C6003A1346 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7BE79AE1E8278C6003A1346 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A7BE79B21E8278C6003A1346 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7BE79B31E8278C6003A1346 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A7BE79C11E8278C6003A1346 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A7BE79C21E8278C6003A1346 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A7BE79C41E8278C6003A1346 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0647B477F0FAA507A6360A3B /* Pods-LEOCouchbaseManager.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CP8A63FL25;
+				INFOPLIST_FILE = LEOCouchbaseManager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pub.leonardo.LEOCouchbaseManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/LEOCouchbaseManager/Bridge.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		A7BE79C51E8278C6003A1346 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D09916C042CA8119FE6627A5 /* Pods-LEOCouchbaseManager.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CP8A63FL25;
+				INFOPLIST_FILE = LEOCouchbaseManager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pub.leonardo.LEOCouchbaseManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/LEOCouchbaseManager/Bridge.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		A7BE79C71E8278C6003A1346 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68D32F7071A3BC155CB09BC1 /* Pods-LEOCouchbaseManagerTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = CP8A63FL25;
+				INFOPLIST_FILE = LEOCouchbaseManagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pub.leonardo.LEOCouchbaseManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LEOCouchbaseManager.app/LEOCouchbaseManager";
+			};
+			name = Debug;
+		};
+		A7BE79C81E8278C6003A1346 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0341F1454096B3ADA8D37A0 /* Pods-LEOCouchbaseManagerTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = CP8A63FL25;
+				INFOPLIST_FILE = LEOCouchbaseManagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pub.leonardo.LEOCouchbaseManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LEOCouchbaseManager.app/LEOCouchbaseManager";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A7BE79A11E8278C6003A1346 /* Build configuration list for PBXProject "LEOCouchbaseManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7BE79C11E8278C6003A1346 /* Debug */,
+				A7BE79C21E8278C6003A1346 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7BE79C31E8278C6003A1346 /* Build configuration list for PBXNativeTarget "LEOCouchbaseManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7BE79C41E8278C6003A1346 /* Debug */,
+				A7BE79C51E8278C6003A1346 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7BE79C61E8278C6003A1346 /* Build configuration list for PBXNativeTarget "LEOCouchbaseManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7BE79C71E8278C6003A1346 /* Debug */,
+				A7BE79C81E8278C6003A1346 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A7BE799E1E8278C6003A1346 /* Project object */;
+}
