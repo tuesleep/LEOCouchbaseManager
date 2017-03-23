@@ -13,9 +13,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _ = LEOCouchbaseModelContainer()
+        _ = LEOCouchbaseModelContainer.sharedInstance
         
+        let isResponds = Notebook.classForCoder().responds(to: #selector(LEOCouchbaseModel.conflict(revs:)))
         
+        print("responds: \(isResponds)")
+        
+        if let clazz = Notebook.classForCoder() as? LEOCouchbaseModel.Type {
+            clazz.conflict(revs: [])
+        }
+                
     }
 
     override func didReceiveMemoryWarning() {

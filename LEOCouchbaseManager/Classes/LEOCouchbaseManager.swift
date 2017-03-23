@@ -8,40 +8,107 @@
 
 import UIKit
 
+/**
+ Main manager of LEOCouchbaseManager lib.
+ 
+ Contains database open, replication management, conflict auto dispath to sepcify model handle, register models factory, and setup basic View.
+ 
+ ## Notifications
+ 
+ - LEOCouchbasePushReplicationChangedNotification
+ - LEOCouchbasePullReplicationChangedNotification
+ 
+ ## Shortcut
+ 
+ - LeoDB: CBLDatabase global variable
+ 
+ */
 class LEOCouchbaseManager: NSObject {
     // MARK: - Private
     
-    private var database: CBLDatabase!
+    static let sharedInstance : LEOCouchbaseManager = LEOCouchbaseManager()
+    
+    var database: CBLDatabase?
+    
+    private override init() {
+        super.init()
+    }
+    
     private var isRunning = false
     
     private var conflictsLiveQuery: CBLLiveQuery?
     
     // MARK: - Config
     
-    var databaseName: String!
+    var databaseName: String?
     
     var isRegisterModelFactory = true
     
-    var isStartConflictLiveQuery = true
+    /**
+     The basic View is index of document by **type** key.
+     
+     */
+    var isCreateBasicViews = true
     
-    init(_ databaseName: String) {
-        super.init()
-        self.databaseName = databaseName
-    }
+    // MARK: - About Sync gateway
+
+    var replicationURL: URL?
+    var replicationName: String?
+    var replicationPassword: String?
+    
+    /**
+     Replication pusher and pull is continuous.
+     
+     The default value is all true.
+     
+     ## Cuple
+     
+     The first is pusher, second is pull.
+     
+     */
+    var replicationContinuous: (Bool, Bool)?
+    
+    var isStartReplication = false
+    var isStartConflictLiveQuery = false
     
     /**
      Start LEO couchbase manager.
      */
     func startManager() {
         guard isRunning == false else {
-            print("Warnning: LEOCouchbaseManager is running, do not start manager again.")
+            LEOCouchbaseLogger.debug("LEOCouchbaseManager is running, do not start manager again.")
             return
         }
         
-        openDatabase(databaseName)
+        guard databaseName != nil else {
+            LEOCouchbaseLogger.debug("LEOCouchbaseManager could not running, becuase databaseName is nil.")
+            return
+        }
         
-        if isStartConflictLiveQuery {
-            startConflictLiveQuery()
+        openDatabase(databaseName!)
+        
+        if isRegisterModelFactory {
+            registerModelFactory()
+        }
+        
+        if isCreateBasicViews {
+            LEOCouchbaseBasicView().setupBasicViews()
+        }
+        
+        if isStartReplication && (replicationURL != nil && replicationName != nil && replicationPassword != nil) {
+            let replicationContainer = LEOReplicationContainer.sharedInstance
+            
+            if replicationContinuous != nil {
+                replicationContainer.isPusherContinuous = replicationContinuous!.0
+                replicationContainer.isPullerContinuous = replicationContinuous!.1
+            }
+            
+            replicationContainer.startReplication(replicationURL!, name: replicationName!, password: replicationPassword!)
+            
+            // Conflict just occur when replication syncing.
+            if isStartConflictLiveQuery {
+                startConflictLiveQuery()
+            }
         }
     }
     
@@ -67,18 +134,17 @@ class LEOCouchbaseManager: NSObject {
      
      */
     private func registerModelFactory() {
-        let factory = database.modelFactory
+        let factory = database?.modelFactory
         
-//        factory?.registerClass(Notebook.self, forDocumentType: "Notebook")
-//        factory?.registerClass(Note.self, forDocumentType: "Note")
-//        factory?.registerClass(NoteItem.self, forDocumentType: "NoteItem")
-//        factory?.registerClass(Image.self, forDocumentType: "Image")
+        let modelMap = LEOCouchbaseModelContainer.sharedInstance.modelMap
         
-        // Another model to be continue...
+        modelMap.forEach {
+            factory?.registerClass($0.value, forDocumentType: $0.key)
+        }
     }
     
     private func startConflictLiveQuery() {
-        conflictsLiveQuery = database.createAllDocumentsQuery().asLive()
+        conflictsLiveQuery = database?.createAllDocumentsQuery().asLive()
         conflictsLiveQuery!.allDocsMode = .onlyConflicts
         conflictsLiveQuery!.addObserver(self, forKeyPath: "rows", options: .new, context: nil)
         conflictsLiveQuery!.start()
@@ -101,25 +167,18 @@ class LEOCouchbaseManager: NSObject {
     private func resolveConflicts() {
         let rows = conflictsLiveQuery?.rows
         
-        print("conflicts: \(rows?.count) --------------------")
-        
         while let row = rows?.nextRow() {
-            print("row: \(row)")
             if let revs = row.conflictingRevisions, revs.count > 1 {
-//                let defaultWinning = revs[0]
-//                let type = (defaultWinning["type"] as? String) ?? ""
+                let defaultWinning = revs[0]
+                let type = (defaultWinning["type"] as? String) ?? ""
                 
-                // Solving conflict by type
-//                switch type {
-//                case "NoteItem":
-//                    solveNoteItemConflict(revs)
-//                default:
-//                    break
-//                }
+                if let modelClass = LEOCouchbaseModelContainer.sharedInstance.modelMap[type] as? LEOCouchbaseModel.Type
+                {
+                    // Use model conflict implement.
+                    modelClass.conflict(revs: revs)
+                }
             }
         }
     }
-    
-    
     
 }

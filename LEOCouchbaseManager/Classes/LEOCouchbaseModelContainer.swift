@@ -8,13 +8,21 @@
 
 import UIKit
 
+/**
+ Container provider all models class and class name of project which inherited LEOCouchbaseModel.
+ 
+ */
 class LEOCouchbaseModelContainer: NSObject {
-    var modelMap: [LEOCouchbaseModel: String]!
+    static let sharedInstance : LEOCouchbaseModelContainer = LEOCouchbaseModelContainer()
     
-    override init() {
+    var modelMap: [String: AnyClass] = [:]
+    
+    private override init() {
         super.init()
         
         setupModelMap()
+        
+        LEOCouchbaseLogger.debug(modelMap)
     }
     
     private func setupModelMap() {
@@ -23,19 +31,18 @@ class LEOCouchbaseModelContainer: NSObject {
         let autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer<AnyClass?>(allClasses)
         let actualClassCount:Int32 = objc_getClassList(autoreleasingAllClasses, expectedClassCount)
 
-        var leoCouchbaseModeSubClasses = [AnyClass]()
         for i in 0 ..< actualClassCount {
-            if let currentClass: AnyClass = allClasses[Int(i)], class_getSuperclass(currentClass) == LEOCouchbaseModel.self {
-                leoCouchbaseModeSubClasses.append(currentClass)
+            if let currentClass: AnyClass = allClasses[Int(i)] {
+                let isDirectlyInherit = class_getSuperclass(currentClass) == LEOCouchbaseModel.self
+                let isIndirectlyInherit = class_getSuperclass(class_getSuperclass(currentClass)) == LEOCouchbaseModel.self
+                
+                if isDirectlyInherit || isIndirectlyInherit {
+                    self.modelMap[String(describing: currentClass)] = currentClass
+                }
             }
         }
         
         allClasses.deallocate(capacity: Int(expectedClassCount))
-        
-        print("leoCouchbaseModeSubClasses: \(leoCouchbaseModeSubClasses)")
     }
-    
-    public func model(with name: String) {
-        
-    }
+
 }
