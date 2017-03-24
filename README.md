@@ -1,5 +1,7 @@
 # LEOCouchbaseManager
 
+[![codebeat badge](https://codebeat.co/badges/6567f1b7-42b1-4134-90b5-2d7bd4736dee)](https://codebeat.co/projects/github-com-leonardo-hammer-leocouchbasemanager-master)
+
 ## Why needs a Couchbase lite manager ?
 
 When use Couchbase doing iOS local database, add Sync gateway to Sync data between multi device, it's must handle most work that contains database open, replication management, conflict handle, register models factory, and setup some Views to index. 
