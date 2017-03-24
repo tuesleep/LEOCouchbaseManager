@@ -1,13 +1,10 @@
 # LEOCouchbaseManager
 
 [![CI Status](http://img.shields.io/travis/leonardo-hammer/LEOCouchbaseManager.svg?style=flat)](https://travis-ci.org/leonardo-hammer/LEOCouchbaseManager)
-[![Version](https://img.shields.io/cocoapods/v/LEOCouchbaseManager.svg?style=flat)](http://cocoapods.org/pods/LEOCouchbaseManager)
-[![License](https://img.shields.io/cocoapods/l/LEOCouchbaseManager.svg?style=flat)](http://cocoapods.org/pods/LEOCouchbaseManager)
-[![Platform](https://img.shields.io/cocoapods/p/LEOCouchbaseManager.svg?style=flat)](http://cocoapods.org/pods/LEOCouchbaseManager)
 
 ## Why needs a Couchbase lite manager ?
 
-When use Couchbase doing iOS local database, add Sync gateway to Sync data between multi device. It's must handle most work that contains database open, replication management, conflict handle, register models factory, and setup some Views to index. 
+When use Couchbase doing iOS local database, add Sync gateway to Sync data between multi device, it's must handle most work that contains database open, replication management, conflict handle, register models factory, and setup some Views to index. 
 
 These works are boring, and it's may cost lot of time to do.
 
@@ -33,7 +30,7 @@ a Couchbase iOS model look like this:
 
 ```swift
 @objc(Notebook)
-class Notebook: BaseModel {
+class Notebook: LEOCouchbaseModel {
 @NSManaged var name: String!
 @NSManaged var noteIds: [String]?
 
@@ -67,7 +64,6 @@ func subModels(with type: LEOCouchbaseModel.Type) -> [LEOCouchbaseModel]
 
 // Link relation with subModel.
 func linkSubModel(_ subModel: LEOCouchbaseModel, save: Bool)
-
 ```
 
 ## Simple Example
@@ -76,7 +72,7 @@ Notebook
 
 ```swift
 @objc(Notebook)
-class Notebook: BaseModel {
+class Notebook: LEOCouchbaseModel {
     @NSManaged var name: String!
     @NSManaged var noteIds: [String]?
     
@@ -94,7 +90,7 @@ Note
 
 ```swift
 @objc(Note)
-class Note: BaseModel {
+class Note: LEOCouchbaseModel {
     // Relation id
     @NSManaged var notebookId: String!
     
@@ -148,12 +144,9 @@ Couchbase lite
 
 ## Installation
 
-LEOCouchbaseManager is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+Copy LEOCouchbaseManager/Classes/ directory to your project.
 
-```ruby
-pod "LEOCouchbaseManager"
-```
+Make sure your project have Couchbase lite iOS framework.
 
 ## Author
 
