@@ -13,16 +13,48 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _ = LEOCouchbaseModelContainer.sharedInstance
+        let manager = LEOCouchbaseManager.sharedInstance
+        manager.databaseName = "demo-db"
+        manager.startManager()
         
-        let isResponds = Notebook.classForCoder().responds(to: #selector(LEOCouchbaseModel.conflict(revs:)))
         
-        print("responds: \(isResponds)")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showAllDocuments))
         
-        if let clazz = Notebook.classForCoder() as? LEOCouchbaseModel.Type {
-            clazz.conflict(revs: [])
+        
+        // DEMO CODES...
+        
+        testDemoData()
+        
+
+    }
+    
+    func testDemoData() {
+        let notebook = Notebook(forNewDocumentIn: LeoDB)
+        notebook.name = "Default notebook"
+        
+        let note = Note(forNewDocumentIn: LeoDB)
+        note.title = "Untitled"
+        note.content = "Today is wunderful"
+        
+        note.notebookId = notebook.document!.documentID
+        
+        notebook.linkSubModel(note, save: false)
+        
+        try! notebook.save()
+        try! note.save()
+        
+        let model = CBLModel(for: LeoDB.document(withID: note.document!.documentID)!)
+        try! model?.deleteDocument()
+    }
+    
+    func showAllDocuments() {
+        LEOCouchbaseLogger.debug("Show all documents: ")
+        
+        LeoDB.createAllDocumentsQuery().runAsync { (queryEnumerator, error) in
+            while let row = queryEnumerator.nextRow(), let document = row.document {
+                LEOCouchbaseLogger.debug(document.properties as Any)
+            }
         }
-                
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +62,4 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
-

@@ -10,7 +10,10 @@ import UIKit
 
 class LEOCouchbaseLogger: NSObject {
     class func debug(_ content: Any) {
-        print("LEOCouchbaseLogger [DEBUG]: \(content)")
+        print(">> LEOCouchbaseLogger [DEBUG]: \(content)")
     }
     
+    class func error(_ content: Any) {
+        print(">> LEOCouchbaseLogger [ERROR]: \(content)")
+    }
 }

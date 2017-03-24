@@ -9,10 +9,15 @@
 import UIKit
 
 @objc(Note)
-class Note: NSObject {
+class Note: BaseModel {
     // Relation id
     @NSManaged var notebookId: String!
     
     @NSManaged var title: String?
     @NSManaged var content: String?
+    
+    
+    override func parentRelationType() -> AnyClass? {
+        return Notebook.self
+    }
 }

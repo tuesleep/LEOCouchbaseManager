@@ -11,11 +11,10 @@ import UIKit
 @objc(Notebook)
 class Notebook: BaseModel {
     @NSManaged var name: String!
+    @NSManaged var noteIds: [String]?
     
     override func subRelationTypes() -> [AnyClass]? {
         return [Note.self]
-        
-        
     }
     
     override class func conflict(revs: [CBLSavedRevision]) {
