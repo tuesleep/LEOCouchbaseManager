@@ -68,7 +68,11 @@ func linkSubModel(_ subModel: LEOCouchbaseModel, save: Bool)
 
 ### Global variable
 
-`LeoDB: CBLDatabase!`
+```swift
+var LeoDB: CBLDatabase {
+    return LEOCouchbaseManager.sharedInstance.database!
+}
+```
 
 ### Replication Notifications
  
