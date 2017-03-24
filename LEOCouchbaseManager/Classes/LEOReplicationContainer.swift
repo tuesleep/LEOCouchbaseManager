@@ -9,11 +9,6 @@
 import UIKit
 
 class LEOReplicationContainer: NSObject {
-    static let sharedInstance : LEOReplicationContainer = LEOReplicationContainer()
-    
-    private override init() {
-        super.init()
-    }
     
     var pusher: CBLReplication!
     var puller: CBLReplication!
@@ -38,6 +33,11 @@ class LEOReplicationContainer: NSObject {
         
         pusher.start()
         puller.start()
+    }
+    
+    func stopReplication() {
+        pusher.stop()
+        puller.stop()
     }
     
     // MARK: - KVO

@@ -51,7 +51,8 @@ class LEOCouchbaseManager: NSObject {
     var isCreateBasicViews = true
     
     // MARK: - About Sync gateway
-
+    var replicationContainer: LEOReplicationContainer?
+    
     var replicationURL: URL?
     var replicationName: String?
     var replicationPassword: String?
@@ -76,12 +77,12 @@ class LEOCouchbaseManager: NSObject {
      */
     func startManager() {
         guard isRunning == false else {
-            LEOCouchbaseLogger.debug("LEOCouchbaseManager is running, do not start manager again.")
+            LEOCouchbaseLogger.debug("LEOCouchbaseManager is started, do not start manager again.")
             return
         }
         
         guard databaseName != nil else {
-            LEOCouchbaseLogger.debug("LEOCouchbaseManager could not running, becuase databaseName is nil.")
+            LEOCouchbaseLogger.debug("LEOCouchbaseManager could not starting, becuase databaseName is nil.")
             return
         }
         
@@ -96,20 +97,29 @@ class LEOCouchbaseManager: NSObject {
         }
         
         if isStartReplication && (replicationURL != nil && replicationName != nil && replicationPassword != nil) {
-            let replicationContainer = LEOReplicationContainer.sharedInstance
+            replicationContainer = LEOReplicationContainer()
             
             if replicationContinuous != nil {
-                replicationContainer.isPusherContinuous = replicationContinuous!.0
-                replicationContainer.isPullerContinuous = replicationContinuous!.1
+                replicationContainer!.isPusherContinuous = replicationContinuous!.0
+                replicationContainer!.isPullerContinuous = replicationContinuous!.1
             }
             
-            replicationContainer.startReplication(replicationURL!, name: replicationName!, password: replicationPassword!)
+            replicationContainer!.startReplication(replicationURL!, name: replicationName!, password: replicationPassword!)
             
             // Conflict just occur when replication syncing.
             if isStartConflictLiveQuery {
                 startConflictLiveQuery()
             }
         }
+    }
+    
+    func stopManager() {
+        stopConflictLiveQuery()
+        replicationContainer?.stopReplication()
+        
+        try! LeoDB.close()
+        
+        isRunning = false
     }
     
     // MARK: - Private setup functions

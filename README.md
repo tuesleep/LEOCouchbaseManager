@@ -66,6 +66,17 @@ func subModels(with type: LEOCouchbaseModel.Type) -> [LEOCouchbaseModel]
 func linkSubModel(_ subModel: LEOCouchbaseModel, save: Bool)
 ```
 
+### Global variable
+
+`LeoDB: CBLDatabase!`
+
+### Replication Notifications
+ 
+ - LEOCouchbasePushReplicationChangedNotification
+ - LEOCouchbasePullReplicationChangedNotification
+
+Observer pull changed notification to reload views.
+
 ## Simple Example
 
 Notebook
