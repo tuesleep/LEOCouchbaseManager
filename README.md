@@ -76,8 +76,15 @@ var LeoDB: CBLDatabase {
 
 ### Replication Notifications
  
- - LEOCouchbasePushReplicationChangedNotification
- - LEOCouchbasePullReplicationChangedNotification
+- LEOCouchbasePushReplicationChangedNotification
+- LEOCouchbasePullReplicationChangedNotification
+
+Notification User Info Keys
+
+- LEOCouchbaseReplicationStatusUserInfoKey (CBLReplicationStatus)
+- LEOCouchbasePullReplicationProgressUserInfoKey (Double)
+- LEOCouchbasePushReplicationProgressUserInfoKey (Double)
+
 
 Observer pull changed notification to reload views.
 

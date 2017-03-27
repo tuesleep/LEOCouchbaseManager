@@ -43,26 +43,44 @@ class LEOReplicationContainer: NSObject {
     // MARK: - KVO
     
     func replicationChanged(_ notification: NSNotification) {
-        guard let noticationObject = notification.object as? CBLReplication else { return }
+        guard let notificationObject = notification.object as? CBLReplication else { return }
         
-        if noticationObject == pusher {
+        var userInfo = [String: Any]()
+        userInfo[LEOCouchbaseReplicationStatusUserInfoKey] = notificationObject.status
+        
+        var progress = 0.0
+        
+        // calculate progress if active
+        if notificationObject.status == .active {
+            let total = notificationObject.changesCount
+            if total > 0 {
+                progress = Double(notificationObject.completedChangesCount) / Double(total)
+            }
+        }
+        
+        if notificationObject == pusher {
             if let error = pusher.lastError {
-                print("pusher error: \(error)")
+                LEOCouchbaseLogger.error("pusher error: \(error)")
             } else {
-                print("push successful.")
-                NotificationCenter.default.post(name: NSNotification.Name.LEOCouchbasePushReplicationChangedNotification, object: nil)
+                LEOCouchbaseLogger.debug("push successful.")
+
+                userInfo[LEOCouchbasePushReplicationProgressUserInfoKey] = progress
+                
+                NotificationCenter.default.post(name: NSNotification.Name.LEOCouchbasePushReplicationChangedNotification, object: userInfo)
             }
             
-        } else if noticationObject == puller {
+        } else if notificationObject == puller {
             if let error = puller.lastError {
-                print("puller error: \(error)")
+                LEOCouchbaseLogger.error("puller error: \(error)")
             } else {
-                print("pull successful.")
-                NotificationCenter.default.post(name: NSNotification.Name.LEOCouchbasePullReplicationChangedNotification, object: nil)
+                LEOCouchbaseLogger.debug("pull successful.")
+                
+                userInfo[LEOCouchbasePullReplicationProgressUserInfoKey] = progress
+                
+                NotificationCenter.default.post(name: NSNotification.Name.LEOCouchbasePullReplicationChangedNotification, object: userInfo)
             }
         }
     }
-    
 }
 
 // MARK: - Notification name
@@ -71,3 +89,14 @@ extension NSNotification.Name {
     public static let LEOCouchbasePullReplicationChangedNotification: NSNotification.Name = NSNotification.Name(rawValue: "leo.couchbase.pull.replication.changed")
     public static let LEOCouchbasePushReplicationChangedNotification: NSNotification.Name = NSNotification.Name(rawValue: "leo.couchbase.push.replication.changed")
 }
+
+/**
+ CBLReplicationStatus
+ */
+public let LEOCouchbaseReplicationStatusUserInfoKey: String = "leo.couchbase.push.replication.status.user.info.key"
+
+/**
+ Double value define replication progress
+ */
+public let LEOCouchbasePullReplicationProgressUserInfoKey: String = "leo.couchbase.pull.replication.progress.user.info.key"
+public let LEOCouchbasePushReplicationProgressUserInfoKey: String = "leo.couchbase.push.replication.progress.user.info.key"
