@@ -159,7 +159,7 @@ Couchbase lite
 
 ## Installation
 
-Copy LEOCouchbaseManager/Classes/ directory to your project.
+Copy LEOCouchbaseManager/Classes/LEOCouchbaseManager directory to your project.
 
 Make sure your project have Couchbase lite iOS framework.
 

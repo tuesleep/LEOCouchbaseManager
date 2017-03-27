@@ -51,15 +51,15 @@ class LEOCouchbaseModel: CBLModel {
     /**
      Must override this function if current model have sub relation model.
      
-     ## For example:
+     ## For example: 
      
      Notebook is a model and it has sub relation is Notes.
-     
-     Should override this function:
+
+     Should override this function: 
      
      ```
      override func subRelationTypes() -> [AnyClass]? {
-     return [Note.self]
+        return [Note.self]
      }
      ```
      
@@ -76,7 +76,7 @@ class LEOCouchbaseModel: CBLModel {
      
      ## Default named:
      
-     This model is **Notebook**, sub model is **Note**, relation key is **notebookId**, so **Note** class must had a property named **notebookId**.
+        This model is **Notebook**, sub model is **Note**, relation key is **notebookId**, so **Note** class must had a property named **notebookId**.
      
      It's can make auto link or break relation to be able.
      

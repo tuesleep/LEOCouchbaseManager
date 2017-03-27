@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A76E59431E88B48B0069D69C /* LEOCouchbaseBasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E593C1E88B48B0069D69C /* LEOCouchbaseBasicView.swift */; };
+		A76E59441E88B48B0069D69C /* LEOCouchbaseLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E593D1E88B48B0069D69C /* LEOCouchbaseLogger.swift */; };
+		A76E59451E88B48B0069D69C /* LEOCouchbaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E593E1E88B48B0069D69C /* LEOCouchbaseManager.swift */; };
+		A76E59461E88B48B0069D69C /* LEOCouchbaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E593F1E88B48B0069D69C /* LEOCouchbaseModel.swift */; };
+		A76E59471E88B48B0069D69C /* LEOCouchbaseModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E59401E88B48B0069D69C /* LEOCouchbaseModelContainer.swift */; };
+		A76E59481E88B48B0069D69C /* LEOCouchbaseNimble.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E59411E88B48B0069D69C /* LEOCouchbaseNimble.swift */; };
+		A76E59491E88B48B0069D69C /* LEOReplicationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E59421E88B48B0069D69C /* LEOReplicationContainer.swift */; };
 		A7BE79AA1E8278C6003A1346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79A91E8278C6003A1346 /* AppDelegate.swift */; };
 		A7BE79AC1E8278C6003A1346 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79AB1E8278C6003A1346 /* ViewController.swift */; };
 		A7BE79AF1E8278C6003A1346 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BE79AD1E8278C6003A1346 /* Main.storyboard */; };
 		A7BE79B11E8278C6003A1346 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7BE79B01E8278C6003A1346 /* Assets.xcassets */; };
 		A7BE79B41E8278C6003A1346 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7BE79B21E8278C6003A1346 /* LaunchScreen.storyboard */; };
 		A7BE79BF1E8278C6003A1346 /* LEOCouchbaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79BE1E8278C6003A1346 /* LEOCouchbaseManagerTests.swift */; };
-		A7BE79CB1E82791C003A1346 /* LEOCouchbaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79CA1E82791C003A1346 /* LEOCouchbaseModel.swift */; };
-		A7BE79CE1E827BF6003A1346 /* LEOCouchbaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79CD1E827BF6003A1346 /* LEOCouchbaseManager.swift */; };
-		A7BE79D01E82808E003A1346 /* LEOCouchbaseModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79CF1E82808E003A1346 /* LEOCouchbaseModelContainer.swift */; };
 		A7BE79D71E836D96003A1346 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79D61E836D96003A1346 /* BaseModel.swift */; };
 		A7BE79DB1E836E27003A1346 /* Notebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79DA1E836E27003A1346 /* Notebook.swift */; };
 		A7BE79DD1E837273003A1346 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79DC1E837273003A1346 /* Note.swift */; };
-		A7BE79DF1E83A15A003A1346 /* LEOCouchbaseLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79DE1E83A15A003A1346 /* LEOCouchbaseLogger.swift */; };
-		A7BE79E11E83A3AD003A1346 /* LEOReplicationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79E01E83A3AD003A1346 /* LEOReplicationContainer.swift */; };
-		A7BE79E31E83C761003A1346 /* LEOCouchbaseBasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79E21E83C761003A1346 /* LEOCouchbaseBasicView.swift */; };
-		A7BE79E51E83C892003A1346 /* LEOCouchbaseNimble.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BE79E41E83C892003A1346 /* LEOCouchbaseNimble.swift */; };
 		BA13A4EC8B580CA033D64F41 /* Pods_LEOCouchbaseManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D667E77C9581AE39D2944D7F /* Pods_LEOCouchbaseManager.framework */; };
 		C3CD071C3BB3D1EB1474E53F /* Pods_LEOCouchbaseManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3254FD092538D46C3F0E091 /* Pods_LEOCouchbaseManagerTests.framework */; };
 /* End PBXBuildFile section */
@@ -40,6 +40,13 @@
 /* Begin PBXFileReference section */
 		0647B477F0FAA507A6360A3B /* Pods-LEOCouchbaseManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LEOCouchbaseManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LEOCouchbaseManager/Pods-LEOCouchbaseManager.debug.xcconfig"; sourceTree = "<group>"; };
 		68D32F7071A3BC155CB09BC1 /* Pods-LEOCouchbaseManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LEOCouchbaseManagerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LEOCouchbaseManagerTests/Pods-LEOCouchbaseManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A76E593C1E88B48B0069D69C /* LEOCouchbaseBasicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseBasicView.swift; sourceTree = "<group>"; };
+		A76E593D1E88B48B0069D69C /* LEOCouchbaseLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseLogger.swift; sourceTree = "<group>"; };
+		A76E593E1E88B48B0069D69C /* LEOCouchbaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseManager.swift; sourceTree = "<group>"; };
+		A76E593F1E88B48B0069D69C /* LEOCouchbaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseModel.swift; sourceTree = "<group>"; };
+		A76E59401E88B48B0069D69C /* LEOCouchbaseModelContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseModelContainer.swift; sourceTree = "<group>"; };
+		A76E59411E88B48B0069D69C /* LEOCouchbaseNimble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseNimble.swift; sourceTree = "<group>"; };
+		A76E59421E88B48B0069D69C /* LEOReplicationContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOReplicationContainer.swift; sourceTree = "<group>"; };
 		A7BE79A61E8278C6003A1346 /* LEOCouchbaseManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LEOCouchbaseManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7BE79A91E8278C6003A1346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7BE79AB1E8278C6003A1346 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,17 +57,10 @@
 		A7BE79BA1E8278C6003A1346 /* LEOCouchbaseManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LEOCouchbaseManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7BE79BE1E8278C6003A1346 /* LEOCouchbaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseManagerTests.swift; sourceTree = "<group>"; };
 		A7BE79C01E8278C6003A1346 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A7BE79CA1E82791C003A1346 /* LEOCouchbaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseModel.swift; sourceTree = "<group>"; };
 		A7BE79CC1E8279EF003A1346 /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
-		A7BE79CD1E827BF6003A1346 /* LEOCouchbaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseManager.swift; sourceTree = "<group>"; };
-		A7BE79CF1E82808E003A1346 /* LEOCouchbaseModelContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseModelContainer.swift; sourceTree = "<group>"; };
 		A7BE79D61E836D96003A1346 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		A7BE79DA1E836E27003A1346 /* Notebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notebook.swift; sourceTree = "<group>"; };
 		A7BE79DC1E837273003A1346 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		A7BE79DE1E83A15A003A1346 /* LEOCouchbaseLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseLogger.swift; sourceTree = "<group>"; };
-		A7BE79E01E83A3AD003A1346 /* LEOReplicationContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOReplicationContainer.swift; sourceTree = "<group>"; };
-		A7BE79E21E83C761003A1346 /* LEOCouchbaseBasicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseBasicView.swift; sourceTree = "<group>"; };
-		A7BE79E41E83C892003A1346 /* LEOCouchbaseNimble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LEOCouchbaseNimble.swift; sourceTree = "<group>"; };
 		C0341F1454096B3ADA8D37A0 /* Pods-LEOCouchbaseManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LEOCouchbaseManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LEOCouchbaseManagerTests/Pods-LEOCouchbaseManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		D09916C042CA8119FE6627A5 /* Pods-LEOCouchbaseManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LEOCouchbaseManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-LEOCouchbaseManager/Pods-LEOCouchbaseManager.release.xcconfig"; sourceTree = "<group>"; };
 		D3254FD092538D46C3F0E091 /* Pods_LEOCouchbaseManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LEOCouchbaseManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +94,20 @@
 				D3254FD092538D46C3F0E091 /* Pods_LEOCouchbaseManagerTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A76E593B1E88B48B0069D69C /* LEOCouchbaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				A76E593C1E88B48B0069D69C /* LEOCouchbaseBasicView.swift */,
+				A76E593D1E88B48B0069D69C /* LEOCouchbaseLogger.swift */,
+				A76E593E1E88B48B0069D69C /* LEOCouchbaseManager.swift */,
+				A76E593F1E88B48B0069D69C /* LEOCouchbaseModel.swift */,
+				A76E59401E88B48B0069D69C /* LEOCouchbaseModelContainer.swift */,
+				A76E59411E88B48B0069D69C /* LEOCouchbaseNimble.swift */,
+				A76E59421E88B48B0069D69C /* LEOReplicationContainer.swift */,
+			);
+			path = LEOCouchbaseManager;
 			sourceTree = "<group>";
 		};
 		A7BE799D1E8278C6003A1346 = {
@@ -144,13 +158,7 @@
 		A7BE79C91E8278F5003A1346 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A7BE79CD1E827BF6003A1346 /* LEOCouchbaseManager.swift */,
-				A7BE79CF1E82808E003A1346 /* LEOCouchbaseModelContainer.swift */,
-				A7BE79CA1E82791C003A1346 /* LEOCouchbaseModel.swift */,
-				A7BE79DE1E83A15A003A1346 /* LEOCouchbaseLogger.swift */,
-				A7BE79E01E83A3AD003A1346 /* LEOReplicationContainer.swift */,
-				A7BE79E21E83C761003A1346 /* LEOCouchbaseBasicView.swift */,
-				A7BE79E41E83C892003A1346 /* LEOCouchbaseNimble.swift */,
+				A76E593B1E88B48B0069D69C /* LEOCouchbaseManager */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -381,17 +389,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7BE79CE1E827BF6003A1346 /* LEOCouchbaseManager.swift in Sources */,
-				A7BE79DF1E83A15A003A1346 /* LEOCouchbaseLogger.swift in Sources */,
 				A7BE79AC1E8278C6003A1346 /* ViewController.swift in Sources */,
-				A7BE79E11E83A3AD003A1346 /* LEOReplicationContainer.swift in Sources */,
-				A7BE79E31E83C761003A1346 /* LEOCouchbaseBasicView.swift in Sources */,
+				A76E59491E88B48B0069D69C /* LEOReplicationContainer.swift in Sources */,
 				A7BE79D71E836D96003A1346 /* BaseModel.swift in Sources */,
+				A76E59481E88B48B0069D69C /* LEOCouchbaseNimble.swift in Sources */,
+				A76E59441E88B48B0069D69C /* LEOCouchbaseLogger.swift in Sources */,
 				A7BE79DD1E837273003A1346 /* Note.swift in Sources */,
-				A7BE79E51E83C892003A1346 /* LEOCouchbaseNimble.swift in Sources */,
-				A7BE79CB1E82791C003A1346 /* LEOCouchbaseModel.swift in Sources */,
+				A76E59471E88B48B0069D69C /* LEOCouchbaseModelContainer.swift in Sources */,
+				A76E59451E88B48B0069D69C /* LEOCouchbaseManager.swift in Sources */,
 				A7BE79AA1E8278C6003A1346 /* AppDelegate.swift in Sources */,
-				A7BE79D01E82808E003A1346 /* LEOCouchbaseModelContainer.swift in Sources */,
+				A76E59431E88B48B0069D69C /* LEOCouchbaseBasicView.swift in Sources */,
+				A76E59461E88B48B0069D69C /* LEOCouchbaseModel.swift in Sources */,
 				A7BE79DB1E836E27003A1346 /* Notebook.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
