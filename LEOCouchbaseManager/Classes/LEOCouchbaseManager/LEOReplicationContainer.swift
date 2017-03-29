@@ -65,19 +65,24 @@ class LEOReplicationContainer: NSObject {
 
         case .stopped:
             statusDescription = "stopped"
+
+        default:
+            break
         }
 
         LEOCouchbaseLogger.debug("  Replication status: \(statusDescription)")
 
-        // calculate progress if active
-        if notificationObject.status == .active {
-            let total = notificationObject.changesCount
-            if total > 0 {
-                progress = Double(notificationObject.completedChangesCount) / Double(total)
+        let total = notificationObject.changesCount
+        if total > 0 {
+            progress = Double(notificationObject.completedChangesCount) / Double(total)
 
-                LEOCouchbaseLogger.debug("  Current progress: \(progress)")
-            }
+            LEOCouchbaseLogger.debug("  Changes: \(notificationObject.completedChangesCount)/\(total)")
+            LEOCouchbaseLogger.debug("  Current progress: \(progress)")
         }
+
+        userInfo[LEOCouchbaseReplicationChangesCountUserInfoKey] = notificationObject.changesCount
+        userInfo[LEOCouchbaseReplicationCompletedChangesCountUserInfoKey] = notificationObject.completedChangesCount
+        userInfo[LEOCouchbaseReplicationProgressUserInfoKey] = progress
 
         if notificationObject == pusher {
             if let error = pusher.lastError {
@@ -85,8 +90,6 @@ class LEOReplicationContainer: NSObject {
             } else {
                 LEOCouchbaseLogger.debug("  push ...")
 
-                userInfo[LEOCouchbasePushReplicationProgressUserInfoKey] = progress
-                
                 NotificationCenter.default.post(name: NSNotification.Name.LEOCouchbasePushReplicationChangedNotification, object: userInfo)
             }
             
@@ -95,8 +98,6 @@ class LEOReplicationContainer: NSObject {
                 LEOCouchbaseLogger.error("  puller error: \(error)")
             } else {
                 LEOCouchbaseLogger.debug("  pull ...")
-                
-                userInfo[LEOCouchbasePullReplicationProgressUserInfoKey] = progress
                 
                 NotificationCenter.default.post(name: NSNotification.Name.LEOCouchbasePullReplicationChangedNotification, object: userInfo)
             }
@@ -113,13 +114,24 @@ extension NSNotification.Name {
     public static let LEOCouchbasePushReplicationChangedNotification: NSNotification.Name = NSNotification.Name(rawValue: "leo.couchbase.push.replication.changed")
 }
 
+// MARK: - Replication changed notification user info key
+
 /**
  CBLReplicationStatus
  */
-public let LEOCouchbaseReplicationStatusUserInfoKey: String = "leo.couchbase.push.replication.status.user.info.key"
+public let LEOCouchbaseReplicationStatusUserInfoKey: String = "leo.couchbase.replication.status.user.info.key"
 
 /**
  Double value define replication progress
  */
-public let LEOCouchbasePullReplicationProgressUserInfoKey: String = "leo.couchbase.pull.replication.progress.user.info.key"
-public let LEOCouchbasePushReplicationProgressUserInfoKey: String = "leo.couchbase.push.replication.progress.user.info.key"
+public let LEOCouchbaseReplicationProgressUserInfoKey: String = "leo.couchbase.replication.progress.user.info.key"
+
+/**
+ Integer value define replication changes count
+ */
+public let LEOCouchbaseReplicationChangesCountUserInfoKey: String = "leo.couchbase.replication.changes.count.user.info.key"
+
+/**
+ Integer value define replication completed changes count
+ */
+public let LEOCouchbaseReplicationCompletedChangesCountUserInfoKey: String = "leo.couchbase.replication.completed.changes.count.user.info.key"
