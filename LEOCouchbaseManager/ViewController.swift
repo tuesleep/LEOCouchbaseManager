@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         
         note.notebookId = notebook.document!.documentID
         
-        notebook.linkSubModel(note, save: false)
+        notebook.leo_linkSubModel(note, save: false)
         
         try! notebook.save()
         try! note.save()

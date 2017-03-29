@@ -13,11 +13,11 @@ class Notebook: BaseModel {
     @NSManaged var name: String!
     @NSManaged var noteIds: [String]?
     
-    override func subRelationTypes() -> [AnyClass]? {
+    override func leo_subRelationTypes() -> [AnyClass]? {
         return [Note.self]
     }
     
-    override class func conflict(revs: [CBLSavedRevision]) {
+    override class func leo_conflict(revs: [CBLSavedRevision]) {
         LEOCouchbaseLogger.debug("Notebook Conflict..")
     }
 }

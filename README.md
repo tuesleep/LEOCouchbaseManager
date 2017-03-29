@@ -34,36 +34,36 @@ class Notebook: LEOCouchbaseModel {
 @NSManaged var name: String!
 @NSManaged var noteIds: [String]?
 
-override func subRelationTypes() -> [AnyClass]? {
+override func leo_subRelationTypes() -> [AnyClass]? {
 	return [Note.self]
 }
 ```
 
-*Notebook* has sub relation type *Note*. A *Notebook* contains some *Note*, so override `subRelationTypes` function mark it, when *Notebook* deleting, the *Note* auto delete too.
+*Notebook* has sub relation type *Note*. A *Notebook* contains some *Note*, so override `leo_subRelationTypes` function mark it, when *Notebook* deleting, the *Note* auto delete too.
 
 Other fucntion in `LEOCouchbaseModel`:
 
 ```swift
 // For example: Notebook.self
-func parentRelationType() -> AnyClass?
+func leo_parentRelationType() -> AnyClass?
 
 // optional override, Note default is noteIds, noteIds is a property in Notebook model.(parentRelationType())
-func parentRelationKey() -> String
+func leo_parentRelationKey() -> String
 
 // notebookId, it's parent relation id property string.
-func parentIdKey() -> String?
+func leo_parentIdKey() -> String?
 
 // Notebook model must override this and return [Note.self] array.
-func subRelationTypes() -> [AnyClass]?
+func leo_subRelationTypes() -> [AnyClass]?
 
 // optional override
-func subRelationKey() -> String
+func leo_subRelationKey() -> String
 
 // Query sub models by Type.
-func subModels(with type: LEOCouchbaseModel.Type) -> [LEOCouchbaseModel]
+func leo_subModels(with type: LEOCouchbaseModel.Type) -> [LEOCouchbaseModel]
 
 // Link relation with subModel.
-func linkSubModel(_ subModel: LEOCouchbaseModel, save: Bool)
+func leo_linkSubModel(_ subModel: LEOCouchbaseModel, save: Bool)
 ```
 
 ### Global variable
@@ -94,15 +94,15 @@ Notebook
 
 ```swift
 @objc(Notebook)
-class Notebook: LEOCouchbaseModel {
+class Notebook: BaseModel {
     @NSManaged var name: String!
     @NSManaged var noteIds: [String]?
     
-    override func subRelationTypes() -> [AnyClass]? {
+    override func leo_subRelationTypes() -> [AnyClass]? {
         return [Note.self]
     }
     
-    override class func conflict(revs: [CBLSavedRevision]) {
+    override class func leo_conflict(revs: [CBLSavedRevision]) {
         LEOCouchbaseLogger.debug("Notebook Conflict..")
     }
 }
@@ -112,7 +112,7 @@ Note
 
 ```swift
 @objc(Note)
-class Note: LEOCouchbaseModel {
+class Note: BaseModel {
     // Relation id
     @NSManaged var notebookId: String!
     
@@ -120,7 +120,7 @@ class Note: LEOCouchbaseModel {
     @NSManaged var content: String?
     
     
-    override func parentRelationType() -> AnyClass? {
+    override func leo_parentRelationType() -> AnyClass? {
         return Notebook.self
     }
 }
@@ -138,7 +138,7 @@ note.content = "Today is wunderful"
 
 note.notebookId = notebook.document!.documentID
 
-notebook.linkSubModel(note, save: false)
+notebook.leo_linkSubModel(note, save: false)
 			
 try! notebook.save()
 try! note.save()
@@ -151,10 +151,10 @@ try! model?.deleteDocument()
 
 Every model class handle thier self conflict.
 
-When a conflict occouring, manager will switch model type and dispath this to specify model. `Model.conflict(revs)`.
+When a conflict occouring, manager will switch model type and dispath this to specify model. `Model.leo_conflict(revs)`.
 
 ```swift
-override class func conflict(revs: [CBLSavedRevision])
+override class func leo_conflict(revs: [CBLSavedRevision])
 ```
 
 Override conflict function handle model conflict is reuqired, conflict must to be solved. [Couchbase iOS Sync Documentation](https://developer.couchbase.com/documentation/mobile/1.3/training/develop/adding-synchronization/index.html)

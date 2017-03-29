@@ -10,10 +10,18 @@ import UIKit
 
 class LEOCouchbaseLogger: NSObject {
     class func debug(_ content: Any) {
-        print(">> LEOCouchbaseLogger [DEBUG]: \(content)")
+        print(">> LEOCouchbaseLogger \(self.dateFormat()) [DEBUG]: ", terminator: "")
+        print(content)
     }
     
     class func error(_ content: Any) {
-        print(">> LEOCouchbaseLogger [ERROR]: \(content)")
+        print(">> LEOCouchbaseLogger \(self.dateFormat()) [ERROR]: ", terminator: "")
+        print(content)
+    }
+    
+    class func dateFormat() -> String {
+        let date = Date()
+        
+        return date.description
     }
 }

@@ -185,7 +185,7 @@ class LEOCouchbaseManager: NSObject {
                 if let modelClass = LEOCouchbaseModelContainer.sharedInstance.modelMap[type] as? LEOCouchbaseModel.Type
                 {
                     // Use model conflict implement.
-                    modelClass.conflict(revs: revs)
+                    modelClass.leo_conflict(revs: revs)
                 }
             }
         }

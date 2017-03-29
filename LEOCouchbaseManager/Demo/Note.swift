@@ -17,7 +17,7 @@ class Note: BaseModel {
     @NSManaged var content: String?
     
     
-    override func parentRelationType() -> AnyClass? {
+    override func leo_parentRelationType() -> AnyClass? {
         return Notebook.self
     }
 }

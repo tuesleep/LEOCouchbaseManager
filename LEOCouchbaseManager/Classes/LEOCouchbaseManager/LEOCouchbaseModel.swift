@@ -25,11 +25,11 @@ import UIKit
  */
 class LEOCouchbaseModel: CBLModel {
     
-    func parentRelationType() -> AnyClass? {
+    func leo_parentRelationType() -> AnyClass? {
         return nil
     }
     
-    func parentRelationKey() -> String {
+    func leo_parentRelationKey() -> String {
         let className = String(describing: self.classForCoder)
         var key = lowercasedFirstChar(with: className)
         key.append("Ids")
@@ -37,8 +37,8 @@ class LEOCouchbaseModel: CBLModel {
         return key
     }
     
-    func parentIdKey() -> String? {
-        guard let parentType = parentRelationType() else {
+    func leo_parentIdKey() -> String? {
+        guard let parentType = leo_parentRelationType() else {
             return nil
         }
         
@@ -67,7 +67,7 @@ class LEOCouchbaseModel: CBLModel {
      
      - returns: a classes of sub model in self had collection relation.
      */
-    func subRelationTypes() -> [AnyClass]? {
+    func leo_subRelationTypes() -> [AnyClass]? {
         return nil
     }
     
@@ -82,7 +82,7 @@ class LEOCouchbaseModel: CBLModel {
      
      - returns: a property key of sub model in self had collection relation.
      */
-    func subRelationKey() -> String {
+    func leo_subRelationKey() -> String {
         let className = String(describing: self.classForCoder)
         var key = lowercasedFirstChar(with: className)
         key.append("Id")
@@ -94,7 +94,7 @@ class LEOCouchbaseModel: CBLModel {
      Query sub models by type. The type should exist in *subRelationTypes* array.
      
      */
-    func subModels(with type: LEOCouchbaseModel.Type) -> [LEOCouchbaseModel] {
+    func leo_subModels(with type: LEOCouchbaseModel.Type) -> [LEOCouchbaseModel] {
         var subModels = [LEOCouchbaseModel]()
         
         let query = LeoDB.viewNamed(String(describing: type)).createQuery()
@@ -103,7 +103,7 @@ class LEOCouchbaseModel: CBLModel {
             let queryEnumerator = try query.run()
             
             while let row = queryEnumerator.nextRow(), let document = row.document {
-                if let relationId = document[self.subRelationKey()] as? String, relationId == self.document!.documentID {
+                if let relationId = document[self.leo_subRelationKey()] as? String, relationId == self.document!.documentID {
                     if let model = CBLModel(for: document) as? LEOCouchbaseModel {
                         subModels.append(model)
                     }
@@ -117,7 +117,7 @@ class LEOCouchbaseModel: CBLModel {
         return subModels
     }
     
-    func linkSubModel(_ subModel: LEOCouchbaseModel, save: Bool) {
+    func leo_linkSubModel(_ subModel: LEOCouchbaseModel, save: Bool) {
         let className = String(describing: subModel.classForCoder)
         var key = lowercasedFirstChar(with: className)
         key.append("Ids")
@@ -135,7 +135,7 @@ class LEOCouchbaseModel: CBLModel {
         }
     }
     
-    class func conflict(revs: [CBLSavedRevision]) {
+    class func leo_conflict(revs: [CBLSavedRevision]) {
         LEOCouchbaseLogger.debug("Conflict..")
     }
     
@@ -149,7 +149,7 @@ class LEOCouchbaseModel: CBLModel {
     }
     
     private func deleteSubRelationModels() {
-        guard let types = subRelationTypes() else {
+        guard let types = leo_subRelationTypes() else {
             return
         }
         
@@ -157,7 +157,7 @@ class LEOCouchbaseModel: CBLModel {
             let view = LeoDB.viewNamed(String(describing: $0))
             view.createQuery().runAsync({ (queryEnumerator, error) in
                 while let row = queryEnumerator.nextRow(), let document = row.document {
-                    if let relationId = document[self.subRelationKey()] as? String, relationId == self.document!.documentID {
+                    if let relationId = document[self.leo_subRelationKey()] as? String, relationId == self.document!.documentID {
                         let model = CBLModel(for: document)
                         try! model?.deleteDocument()
                     }
@@ -167,7 +167,7 @@ class LEOCouchbaseModel: CBLModel {
     }
     
     private func breakParentRelation() {
-        guard let parentIdKey = parentIdKey(), let parentDocumentID = value(forKey: parentIdKey) as? String else {
+        guard let parentIdKey = leo_parentIdKey(), let parentDocumentID = value(forKey: parentIdKey) as? String else {
             return
         }
         
@@ -175,7 +175,7 @@ class LEOCouchbaseModel: CBLModel {
             return
         }
         
-        guard var parentRelationArray = model.value(forKey: parentRelationKey()) as? [String] else {
+        guard var parentRelationArray = model.value(forKey: leo_parentRelationKey()) as? [String] else {
             return
         }
         
@@ -184,7 +184,7 @@ class LEOCouchbaseModel: CBLModel {
         }
         
         parentRelationArray.remove(at: breakIndex)
-        model.setValue(parentRelationArray, forKey: parentRelationKey())
+        model.setValue(parentRelationArray, forKey: leo_parentRelationKey())
         
         do {
             try model.save()
@@ -202,11 +202,11 @@ class LEOCouchbaseModel: CBLModel {
     }
     
     override func deleteDocument() throws {
-        if subRelationTypes() != nil {
+        if leo_subRelationTypes() != nil {
             deleteSubRelationModels()
         }
         
-        if parentRelationType() != nil {
+        if leo_parentRelationType() != nil {
             breakParentRelation()
         }
         
