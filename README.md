@@ -63,7 +63,7 @@ func leo_subRelationKey() -> String
 func leo_subModels(with type: LEOCouchbaseModel.Type) -> [LEOCouchbaseModel]
 
 // Link relation with subModel.
-func leo_linkSubModel(_ subModel: LEOCouchbaseModel, save: Bool)
+func leo_linkSubModel(_ subModel: LEOCouchbaseModel, save: Bool = false, saveSubModel: Bool = false)
 ```
 
 ### Global variable

@@ -65,9 +65,6 @@ class LEOReplicationContainer: NSObject {
 
         case .stopped:
             statusDescription = "stopped"
-
-        default:
-            break
         }
 
         LEOCouchbaseLogger.debug("  Replication status: \(statusDescription)")

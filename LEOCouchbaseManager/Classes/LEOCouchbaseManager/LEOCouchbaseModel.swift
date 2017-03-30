@@ -117,7 +117,15 @@ class LEOCouchbaseModel: CBLModel {
         return subModels
     }
     
-    func leo_linkSubModel(_ subModel: LEOCouchbaseModel, save: Bool) {
+    /**
+     Link current model with sub model, setup relation.
+     
+     - Parameter subModel: The model which needs link.
+     - Parameter save: Save current model immediately.
+     - Parameter saveSubModel: Save sub model immediately.
+     
+     */
+    func leo_linkSubModel(_ subModel: LEOCouchbaseModel, save: Bool = false, saveSubModel: Bool = false) {
         let className = String(describing: subModel.classForCoder)
         var key = lowercasedFirstChar(with: className)
         key.append("Ids")
@@ -131,6 +139,10 @@ class LEOCouchbaseModel: CBLModel {
         }
         
         if save {
+            try! self.save()
+        }
+        
+        if saveSubModel {
             try! subModel.save()
         }
     }

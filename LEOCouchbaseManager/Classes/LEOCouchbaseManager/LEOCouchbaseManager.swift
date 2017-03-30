@@ -111,15 +111,19 @@ class LEOCouchbaseManager: NSObject {
                 startConflictLiveQuery()
             }
         }
+        
+        isRunning = true
     }
     
     func stopManager() {
-        stopConflictLiveQuery()
-        replicationContainer?.stopReplication()
-        
-        try! LeoDB.close()
-        
-        isRunning = false
+        if isRunning {
+            stopConflictLiveQuery()
+            replicationContainer?.stopReplication()
+            
+            try! LeoDB.close()
+            
+            isRunning = false
+        }
     }
     
     // MARK: - Private setup functions
