@@ -37,7 +37,7 @@ class LEOCouchbaseModelContainer: NSObject {
                 let isIndirectlyInherit = class_getSuperclass(class_getSuperclass(currentClass)) == LEOCouchbaseModel.self
                 
                 if isDirectlyInherit || isIndirectlyInherit {
-                    self.modelMap[String(describing: currentClass)] = currentClass
+                    self.modelMap[getClassName(currentClass)] = currentClass
                 }
             }
         }

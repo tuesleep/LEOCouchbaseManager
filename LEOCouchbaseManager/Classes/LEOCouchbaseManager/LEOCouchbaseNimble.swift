@@ -11,3 +11,14 @@ import UIKit
 var LeoDB: CBLDatabase {
     return LEOCouchbaseManager.sharedInstance.database!
 }
+
+func getClassName(_ clazz: AnyClass) -> String {
+    let className = String(describing: clazz)
+    if className.contains(".") {
+        if let name = className.components(separatedBy: ".").last {
+            return name
+        }
+    }
+
+    return className
+}

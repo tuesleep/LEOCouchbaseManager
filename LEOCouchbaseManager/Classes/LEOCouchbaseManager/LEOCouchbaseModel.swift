@@ -30,7 +30,7 @@ class LEOCouchbaseModel: CBLModel {
     }
     
     func leo_parentRelationKey() -> String {
-        let className = String(describing: self.classForCoder)
+        let className = getClassName(self.classForCoder)
         var key = lowercasedFirstChar(with: className)
         key.append("Ids")
         
@@ -42,7 +42,7 @@ class LEOCouchbaseModel: CBLModel {
             return nil
         }
         
-        var key = lowercasedFirstChar(with: String(describing: parentType))
+        var key = lowercasedFirstChar(with: getClassName(parentType))
         key.append("Id")
         
         return key
@@ -83,7 +83,7 @@ class LEOCouchbaseModel: CBLModel {
      - returns: a property key of sub model in self had collection relation.
      */
     func leo_subRelationKey() -> String {
-        let className = String(describing: self.classForCoder)
+        let className = getClassName(self.classForCoder)
         var key = lowercasedFirstChar(with: className)
         key.append("Id")
         
@@ -97,7 +97,7 @@ class LEOCouchbaseModel: CBLModel {
     func leo_subModels(with type: LEOCouchbaseModel.Type) -> [LEOCouchbaseModel] {
         var subModels = [LEOCouchbaseModel]()
         
-        let query = LeoDB.viewNamed(String(describing: type)).createQuery()
+        let query = LeoDB.viewNamed(getClassName(type)).createQuery()
         
         do {
             let queryEnumerator = try query.run()
@@ -126,7 +126,7 @@ class LEOCouchbaseModel: CBLModel {
      
      */
     func leo_linkSubModel(_ subModel: LEOCouchbaseModel, save: Bool = false, saveSubModel: Bool = false) {
-        let className = String(describing: subModel.classForCoder)
+        let className = getClassName(subModel.classForCoder)
         var key = lowercasedFirstChar(with: className)
         key.append("Ids")
         
@@ -166,7 +166,7 @@ class LEOCouchbaseModel: CBLModel {
         }
         
         types.forEach {
-            let view = LeoDB.viewNamed(String(describing: $0))
+            let view = LeoDB.viewNamed(getClassName($0))
             view.createQuery().runAsync({ (queryEnumerator, error) in
                 while let row = queryEnumerator.nextRow(), let document = row.document {
                     if let relationId = document[self.leo_subRelationKey()] as? String, relationId == self.document!.documentID {
@@ -207,7 +207,7 @@ class LEOCouchbaseModel: CBLModel {
     
     override func save() throws {
         if self.type == nil || self.type!.isEmpty {
-            self.type = String(describing: self.classForCoder)
+            self.type = getClassName(self.classForCoder)
         }
         
         try super.save()
