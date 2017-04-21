@@ -94,10 +94,14 @@ class LEOCouchbaseModel: CBLModel {
      Query sub models by type. The type should exist in *subRelationTypes* array.
      
      */
-    func leo_subModels(with type: LEOCouchbaseModel.Type) -> [LEOCouchbaseModel] {
+    func leo_subModels(with type: LEOCouchbaseModel.Type, sortDescriptors: [NSSortDescriptor]? = nil) -> [LEOCouchbaseModel] {
         var subModels = [LEOCouchbaseModel]()
         
         let query = LeoDB.viewNamed(getClassName(type)).createQuery()
+        
+        if sortDescriptors != nil {
+            query.sortDescriptors = sortDescriptors!
+        }
         
         do {
             let queryEnumerator = try query.run()

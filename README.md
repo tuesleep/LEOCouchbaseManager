@@ -60,7 +60,7 @@ func leo_subRelationTypes() -> [AnyClass]?
 func leo_subRelationKey() -> String
 
 // Query sub models by Type.
-func leo_subModels(with type: LEOCouchbaseModel.Type) -> [LEOCouchbaseModel]
+func leo_subModels(with type: LEOCouchbaseModel.Type, sortDescriptors: [NSSortDescriptor]? = nil) -> [LEOCouchbaseModel]
 
 // Link relation with subModel.
 func leo_linkSubModel(_ subModel: LEOCouchbaseModel, save: Bool = false, saveSubModel: Bool = false)
