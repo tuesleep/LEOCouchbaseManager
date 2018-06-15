@@ -172,5 +172,5 @@ Make sure your project have Couchbase lite iOS framework.
 
 ## Author
 
-leonardo-hammer, leonardo_hammer@zoho.com
+Tuesleep, tuesleep@gmail.com
 
