@@ -166,11 +166,15 @@ Couchbase lite
 
 ## Installation
 
-Copy LEOCouchbaseManager/Classes/LEOCouchbaseManager directory to your project.
+Copy **LEOCouchbaseManager/Classes/LEOCouchbaseManager** directory to your project.
 
 Make sure your project have Couchbase lite iOS framework.
+
+```ruby
+# Added to Podfile
+pod 'couchbase-lite-ios', '~> 1.3.1'
+```
 
 ## Author
 
 Tuesleep, tuesleep@gmail.com
-
